@@ -19,3 +19,6 @@ Ada Lanka is a web application that provides a platform for users to create, sha
 
 ## Contact
 For any inquiries or contributions, please contact the project maintainers at [ada.lanka.project@gmail.com](mailto:ada.lanka.project@gmail.com)
+
+## Credits
+Thank You Team AdaLanka for your hard workings.
