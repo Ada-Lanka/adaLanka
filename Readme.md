@@ -66,3 +66,5 @@ For further information, you can contact us at
 =======
 ada lanaka is simple news project to read news from different sources and display them in a simple way.
 >>>>>>> 5fa86bd87be5d1115657d3a63c984f8dc2229684
+
+## Ada Lanka
