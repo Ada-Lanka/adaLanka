@@ -1,5 +1,6 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
+<<<<<<< HEAD
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
@@ -62,3 +63,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Contact
 For further information, you can contact us at
+=======
+ada lanaka is simple news project to read news from different sources and display them in a simple way.
+>>>>>>> 5fa86bd87be5d1115657d3a63c984f8dc2229684
