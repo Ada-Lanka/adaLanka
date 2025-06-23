@@ -16,3 +16,6 @@ Ada Lanka is a web application that provides a platform for users to create, sha
 - Frontend: React.js, Bootstrap
 - Backend: PHP, Laravel
 - Database: MySQL
+
+## Contact
+For any inquiries or contributions, please contact the project maintainers at [ada.lanka.project@gmail.com](mailto:ada.lanka.project@gmail.com)
