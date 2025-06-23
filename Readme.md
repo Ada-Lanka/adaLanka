@@ -4,9 +4,15 @@ Ada Lanka is a web application that provides a platform for users to create, sha
 
 ## Features
 
--   User authentication and authorization
--   Create, edit, and delete educational content
--   Search and filter content
--   User profiles and dashboards
--   Responsive design for mobile and desktop devices
--   Admin panel for content management
+- User authentication and authorization
+- Create, edit, and delete educational content
+- Search and filter content
+- User profiles and dashboards
+- Responsive design for mobile and desktop devices
+- Admin panel for content management
+
+## Technologies Used
+
+- Frontend: React.js, Bootstrap
+- Backend: PHP, Laravel
+- Database: MySQL
