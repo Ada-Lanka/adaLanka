@@ -24,3 +24,5 @@ For any inquiries or contributions, please contact the project maintainers at [a
 ## Credits
 
 Thank You Team AdaLanka for your hard workings.
+
+Special thanks to all contributors and supporters who made this project possible.
