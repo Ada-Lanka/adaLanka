@@ -24,10 +24,8 @@
             </div>
             <!-- Dark Mode Toggle for Desktop -->
             <button id="darkModeToggle" class="text-white hover:text-gray-300 transition-colors p-1 w-8 h-8 flex items-center justify-center">
-                <span id="darkModeIcon">
-                    <x-iconpark-moon class="w-5 h-5 dark-mode-icon moon-icon" />
-                    <x-iconpark-sun class="w-5 h-5 dark-mode-icon sun-icon hidden" />
-                </span>
+                <x-iconpark-moon class="w-5 h-5 moon-icon" />
+                <x-iconpark-sun class="w-5 h-5 sun-icon" style="display: none;" />
             </button>
         </div>
 
@@ -35,10 +33,8 @@
         <div class="md:hidden flex items-center space-x-3">
             <!-- Dark Mode Toggle for Mobile -->
             <button id="darkModeToggleMobile" class="text-white hover:text-gray-300 transition-colors p-1 w-8 h-8 flex items-center justify-center">
-                <span id="darkModeIconMobile">
-                    <x-iconpark-moon class="w-5 h-5 dark-mode-icon moon-icon" />
-                    <x-iconpark-sun class="w-5 h-5 dark-mode-icon sun-icon hidden" />
-                </span>
+                <x-iconpark-moon class="w-5 h-5 moon-icon" />
+                <x-iconpark-sun class="w-5 h-5 sun-icon" style="display: none;" />
             </button>
             <!-- Mobile Menu Toggle -->
             <button id="mobileMenuToggle" class="text-white hover:text-gray-300 transition-colors p-1 w-8 h-8 flex items-center justify-center">

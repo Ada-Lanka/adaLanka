@@ -102,9 +102,9 @@
     border-color: var(--gray-700);
 }
 
-/* Dark mode icon switching */
+/* Dark mode icon switching - Simplified approach */
 .dark .moon-icon {
-    display: none;
+    display: none !important;
 }
 
 .dark .sun-icon {
@@ -131,13 +131,6 @@
 .dark-theme {
     color: var(--white);
     background-color: var(--gray-900);
-}
-
-.navbar {
-    background: var(--primary);
-    color: var(--white);
-    font-size: 18px;
-    font-weight: 600;
 }
 
 /* Mobile menu animations */
