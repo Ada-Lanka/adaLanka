@@ -34,7 +34,15 @@
 
 @layer base {
     html, body {
-        @apply bg-white text-gray-900 font-sans;
+        background: var(--primary-light);
+        color: var(--black);
+        font-family: var(--font-sans);
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        transition: var(--transition); 
+        box-sizing: border-box;
     }
 }
 
@@ -42,3 +50,11 @@
     color: var(--white);
     background-color: var(--gray-900);
 }
+
+.navbar {
+    background: var(--primary);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 600;
+}
+
