@@ -9,27 +9,27 @@
         <div class="hidden md:flex space-x-4 items-center">
             <p class="text-white">follow us</p>
             <div class="flex space-x-3 items-center">
-                <a href="#" class="text-white hover:text-gray-300 transition-colors">
-                    <x-iconpark-facebook />
+                <a href="#" class="text-white hover:text-gray-300 transition-colors w-6 h-6 flex items-center justify-center">
+                    <x-iconpark-facebook class="w-5 h-5" />
                 </a>
-                <a href="#" class="text-white hover:text-gray-300 transition-colors">
-                    <x-iconpark-instagram-o />
+                <a href="#" class="text-white hover:text-gray-300 transition-colors w-6 h-6 flex items-center justify-center">
+                    <x-iconpark-instagram-o class="w-5 h-5" />
                 </a>
-                <a href="#" class="text-white hover:text-gray-300 transition-colors">
-                    <x-bi-twitter-x />
+                <a href="#" class="text-white hover:text-gray-300 transition-colors w-6 h-6 flex items-center justify-center">
+                    <x-iconpark-twitter class="w-5 h-5" />
                 </a>
-                <a href="#" class="text-white hover:text-gray-300 transition-colors">
-                    <x-lineawesome-whatsapp />
+                <a href="#" class="text-white hover:text-gray-300 transition-colors w-6 h-6 flex items-center justify-center">
+                    <x-iconpark-wechat class="w-5 h-5" />
                 </a>
             </div>
             <!-- Dark Mode Toggle for Desktop -->
-            <button id="darkModeToggle" class="text-white hover:text-gray-300 transition-colors p-1">
+            <button id="darkModeToggle" class="text-white hover:text-gray-300 transition-colors p-1 w-8 h-8 flex items-center justify-center">
                 <span id="darkModeIcon">
                     <span class="dark:hidden">
-                        <x-heroicon-s-moon />
+                        <x-iconpark-moon class="w-5 h-5" />
                     </span>
                     <span class="hidden dark:inline">
-                        <x-akar-sun />
+                        <x-iconpark-sun class="w-5 h-5" />
                     </span>
                 </span>
             </button>
@@ -38,23 +38,23 @@
         <!-- Mobile Menu Button and Dark Mode -->
         <div class="md:hidden flex items-center space-x-3">
             <!-- Dark Mode Toggle for Mobile -->
-            <button id="darkModeToggleMobile" class="text-white hover:text-gray-300 transition-colors p-1">
+            <button id="darkModeToggleMobile" class="text-white hover:text-gray-300 transition-colors p-1 w-8 h-8 flex items-center justify-center">
                 <span id="darkModeIconMobile">
                     <span class="dark:hidden">
-                        <x-heroicon-s-moon />
+                        <x-iconpark-moon class="w-5 h-5" />
                     </span>
                     <span class="hidden dark:inline">
-                        <x-akar-sun />
+                        <x-iconpark-sun class="w-5 h-5" />
                     </span>
                 </span>
             </button>
             <!-- Mobile Menu Toggle -->
-            <button id="mobileMenuToggle" class="text-white hover:text-gray-300 transition-colors p-1">
+            <button id="mobileMenuToggle" class="text-white hover:text-gray-300 transition-colors p-1 w-8 h-8 flex items-center justify-center">
                 <span id="menuIcon">
-                    <x-zondicon-menu />
+                    <x-iconpark-applicationmenu class="w-6 h-6" />
                 </span>
                 <span id="closeIcon" class="hidden">
-                    <x-akar-cross />
+                    <x-iconpark-close class="w-6 h-6" />
                 </span>
             </button>
         </div>
@@ -65,8 +65,8 @@
         <div class="p-4">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Menu</h2>
-                <button id="closeMobileMenu" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                    <x-akar-cross />
+                <button id="closeMobileMenu" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 w-6 h-6 flex items-center justify-center">
+                    <x-iconpark-close class="w-5 h-5" />
                 </button>
             </div>
             
@@ -82,17 +82,17 @@
             <div class="border-t pt-4 dark:border-gray-600">
                 <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Follow us</p>
                 <div class="flex space-x-4">
-                    <a href="#" class="text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400 transition-colors">
-                        <x-iconpark-facebook />
+                    <a href="#" class="text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400 transition-colors w-6 h-6 flex items-center justify-center">
+                        <x-iconpark-facebook class="w-5 h-5" />
                     </a>
-                    <a href="#" class="text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400 transition-colors">
-                        <x-iconpark-instagram-o />
+                    <a href="#" class="text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400 transition-colors w-6 h-6 flex items-center justify-center">
+                        <x-iconpark-instagram-o class="w-5 h-5" />
                     </a>
-                    <a href="#" class="text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400 transition-colors">
-                        <x-bi-twitter-x />
+                    <a href="#" class="text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400 transition-colors w-6 h-6 flex items-center justify-center">
+                        <x-iconpark-twitter class="w-5 h-5" />
                     </a>
-                    <a href="#" class="text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400 transition-colors">
-                        <x-lineawesome-whatsapp />
+                    <a href="#" class="text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400 transition-colors w-6 h-6 flex items-center justify-center">
+                        <x-iconpark-wechat class="w-5 h-5" />
                     </a>
                 </div>
             </div>

@@ -87,3 +87,30 @@
     transition: transform 0.3s ease-in-out;
 }
 
+/* Icon styles */
+.navbar svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    stroke: currentColor;
+    display: block;
+}
+
+/* Ensure icons are visible on navbar */
+.navbar a svg,
+.navbar button svg {
+    color: inherit;
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+/* Mobile menu icons */
+#mobileMenuToggle svg,
+#darkModeToggle svg,
+#darkModeToggleMobile svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    stroke: currentColor;
+}
+
