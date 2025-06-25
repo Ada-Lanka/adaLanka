@@ -54,26 +54,78 @@
         transition: var(--transition); 
         box-sizing: border-box;
     }
+}
 
-    /* Dark mode styles */
-    .dark {
-        background-color: var(--gray-900);
-        color: var(--white);
-    }
+/* Dark Mode Styles - Simple CSS */
+.dark body {
+    background-color: var(--gray-900);
+    color: var(--white);
+}
 
-    .dark body {
-        background-color: var(--gray-900);
-        color: var(--white);
-    }
+.dark main {
+    background-color: var(--gray-900);
+    color: var(--white);
+}
 
-    .dark .navbar {
-        background: var(--gray-800);
-    }
+.dark footer {
+    background-color: var(--gray-950) !important;
+    color: var(--white);
+}
 
-    /* Ensure all elements inherit dark mode properly */
-    .dark * {
-        border-color: theme('colors.gray.700');
-    }
+/* Navbar always stays purple regardless of mode */
+.navbar {
+    background: var(--primary);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Mobile menu dark mode */
+.dark .mobile-menu {
+    background-color: var(--gray-800);
+    color: var(--white);
+}
+
+.dark .mobile-menu h2 {
+    color: var(--white);
+}
+
+.dark .mobile-menu a {
+    color: var(--white);
+}
+
+.dark .mobile-menu .text-gray-600 {
+    color: #D1D5DB; /* gray-300 equivalent */
+}
+
+.dark .mobile-menu .border-gray-300 {
+    border-color: var(--gray-700);
+}
+
+/* Dark mode icon switching */
+.dark .moon-icon {
+    display: none;
+}
+
+.dark .sun-icon {
+    display: block !important;
+}
+
+/* Content cards and elements in dark mode */
+.dark .content-card {
+    background-color: var(--gray-800);
+    border-color: var(--gray-700);
+    color: var(--white);
+}
+
+.dark .content-card h1,
+.dark .content-card h2,
+.dark .content-card h3 {
+    color: var(--white);
+}
+
+.dark .content-card p {
+    color: #D1D5DB; /* gray-300 equivalent */
 }
 
 .dark-theme {

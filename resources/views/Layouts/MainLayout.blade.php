@@ -7,8 +7,8 @@
     @vite( 'resources/js/app.js')
     <title>Ada Lanka</title>
 </head>
-<body class="h-full bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
-    <main class="container mx-auto min-h-screen flex flex-col">
+<body class="h-full transition-colors duration-200">
+    <main class="container mx-auto min-h-screen flex flex-col transition-colors duration-200">
         <nav class="w-full p-2">
             <x-nav-bar />
         </nav>
@@ -17,7 +17,7 @@
             @yield('content')
         </div>
 
-        <footer class="bg-gray-800 dark:bg-gray-950 text-white p-4 mt-4 transition-colors duration-200">
+        <footer class="bg-gray-800 text-white p-4 mt-4 transition-colors duration-200">
             <p>&copy; 2023 Ada Lanka. All rights reserved.</p>
         </footer>
     </main>
