@@ -2,7 +2,7 @@
 @extends('layouts.MainLayout')
 
 @section('content')
-<div class="max-w-4xl mx-auto">
+<div class="max-w-4xl mx-auto mt-8">
     <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Welcome to Ada Lanka</h1>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
