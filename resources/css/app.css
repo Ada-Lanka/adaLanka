@@ -207,20 +207,20 @@
 
 /* Dark mode for categories section */
 .dark .categories-section {
-    background-color: var(--dark-bg);
-    color: var(--dark-text);
-    border-color: var(--dark-border);
+    background-color: var(--gray-900);
+    color: var(--white);
+    border-color: var(--gray-700);
 }
 
 .dark .categories-section h2 {
-    color: var(--dark-text);
+    color: var(--white);
 }
 
 /* Search input dark mode */
 .dark #search-input {
-    background-color: var(--dark-card);
-    color: var(--dark-text);
-    border-color: var(--dark-border);
+    background-color: var(--gray-800);
+    color: var(--white);
+    border-color: var(--gray-700);
 }
 
 .dark #search-input::placeholder {
@@ -234,8 +234,8 @@
 
 /* Search suggestions dark mode */
 .dark #search-suggestions {
-    background-color: var(--dark-card);
-    border-color: var(--dark-border);
+    background-color: var(--gray-800);
+    border-color: var(--gray-700);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -243,10 +243,15 @@
 .suggestion-item {
     cursor: pointer;
     transition: background-color 0.2s ease;
+    color: inherit;
 }
 
 .suggestion-item:hover {
     background-color: #f3f4f6;
+}
+
+.dark .suggestion-item {
+    color: var(--white);
 }
 
 .dark .suggestion-item:hover {
