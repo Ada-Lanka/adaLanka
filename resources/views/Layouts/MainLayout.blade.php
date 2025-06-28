@@ -7,19 +7,17 @@
     @vite( 'resources/js/app.js')
     <title>Ada Lanka</title>
 </head>
-<body class="h-full transition-colors duration-200">
-    <main class="container mx-auto min-h-screen flex flex-col transition-colors duration-200">
-        <nav class="w-full p-2">
-            <x-nav-bar />
-        </nav>
+<body class="h-full transition-colors duration-200 flex flex-col min-h-screen">
+    <nav class="w-full p-2">
+        <x-nav-bar />
+    </nav>
 
-        <div class="p-4 flex-grow">
+    <main class="container mx-auto flex-grow transition-colors duration-200">
+        <div class="p-4">
             @yield('content')
         </div>
-
-        <footer class="bg-gray-800 text-white p-4 mt-4 transition-colors duration-200">
-            <p>&copy; 2023 Ada Lanka. All rights reserved.</p>
-        </footer>
     </main>
+
+    <x-site-footer />
 </body>
 </html>

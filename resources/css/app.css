@@ -67,11 +67,6 @@
     color: var(--white);
 }
 
-.dark footer {
-    background-color: var(--gray-950) !important;
-    color: var(--white);
-}
-
 /* Navbar always stays purple regardless of mode */
 .navbar {
     background: var(--primary);
@@ -177,5 +172,31 @@
     height: 24px;
     fill: currentColor;
     stroke: currentColor;
+}
+
+/* Site Footer Styles */
+.site-footer {
+    background: var(--primary) !important;
+    color: var(--white);
+}
+
+.site-footer h2,
+.site-footer h3 {
+    color: var(--white);
+}
+
+.site-footer .footer-link:hover {
+    text-decoration: underline;
+}
+
+/* Footer remains purple in both modes */
+.dark .site-footer {
+    background: var(--primary) !important;
+    color: var(--white);
+}
+
+.dark .site-footer h2,
+.dark .site-footer h3 {
+    color: var(--white);
 }
 

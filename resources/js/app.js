@@ -86,4 +86,10 @@ document.addEventListener("DOMContentLoaded", function () {
             toggleMobileMenu();
         }
     });
+
+    // Auto-update copyright year
+    const currentYearElement = document.getElementById("currentYear");
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
 });
