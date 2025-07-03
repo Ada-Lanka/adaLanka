@@ -11,13 +11,16 @@ cp .env.docker .env
 # 2. Build and start services
 docker compose up --build -d
 
-# 3. Generate app key
+# 3. copy .env to docker
+docker compose exec app cp .env.docker .env
+
+# 4. Generate app key
 docker compose exec app php artisan key:generate
 
-# 4. Run migrations
+# 5. Run migrations
 docker compose exec app php artisan migrate
 
-# 5. Start development mode with live sync
+# 6. Start development mode with live sync
 docker compose down && docker compose up --watch
 ```
 
@@ -46,14 +49,19 @@ Build the Docker images and start all services:
 docker compose up --build -d
 ```
 
-### 3. Generate Application Key
+#### 3. copy .env to docker
+```bash
+docker compose exec app cp .env.docker .env
+```
+
+### 4. Generate Application Key
 
 Generate Laravel application key:
 ```bash
 docker compose exec app php artisan key:generate
 ```
 
-### 4. Initialize Database
+### 5. Initialize Database
 
 Run database migrations:
 ```bash
@@ -65,7 +73,7 @@ docker compose exec app php artisan migrate
 docker compose exec app php artisan db:seed
 ```
 
-### 5. Start Development Mode with Live Sync
+### 6. Start Development Mode with Live Sync
 
 Stop the current containers and start with the new develop feature:
 ```bash
