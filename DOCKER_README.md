@@ -2,12 +2,35 @@
 
 This Laravel application is fully dockerized for easy development and deployment.
 
+## TL;DR - Quick Commands
+
+```bash
+# 1. Setup environment
+cp .env.docker .env
+
+# 2. Build and start services
+docker compose up --build -d
+
+# 3. Generate app key
+docker compose exec app php artisan key:generate
+
+# 4. Run migrations
+docker compose exec app php artisan migrate
+
+# 5. Start development mode with live sync
+docker compose down && docker compose up --watch
+```
+
+**🎉 Your app will be ready at http://localhost:8000**
+
 ## Requirements
 
 - Docker Engine 20.10.0 or higher
 - Docker Compose 2.0 or higher
 
 ## Quick Start
+
+Follow these steps in order:
 
 ### 1. Environment Setup
 
@@ -16,46 +39,48 @@ Copy the Docker environment file:
 cp .env.docker .env
 ```
 
-Generate Laravel application key:
-```bash
-docker-compose run --rm app php artisan key:generate
-```
-
 ### 2. Build and Start Services
 
+Build the Docker images and start all services:
 ```bash
-# Build and start all services
-docker-compose up -d
-
-# Or use the new develop feature for live code synchronization
-docker-compose up --build -d
+docker compose up --build -d
 ```
 
-### 3. Development with Live Sync
+### 3. Generate Application Key
 
-The `docker-compose.yml` includes the new Docker `develop` feature which allows real-time code synchronization:
-
+Generate Laravel application key:
 ```bash
-# Start development mode with live sync
-docker-compose up --build -d
-
-# Your local changes in the following directories will be automatically synced:
-# - ./app -> /var/www/html/app
-# - ./resources -> /var/www/html/resources
-# - ./routes -> /var/www/html/routes
-# - ./config -> /var/www/html/config
-# - ./database -> /var/www/html/database
+docker compose exec app php artisan key:generate
 ```
 
 ### 4. Initialize Database
 
+Run database migrations:
 ```bash
-# Run migrations
-docker-compose exec app php artisan migrate
-
-# (Optional) Run seeders
-docker-compose exec app php artisan db:seed
+docker compose exec app php artisan migrate
 ```
+
+(Optional) Run seeders:
+```bash
+docker compose exec app php artisan db:seed
+```
+
+### 5. Start Development Mode with Live Sync
+
+Stop the current containers and start with the new develop feature:
+```bash
+docker compose down
+docker compose up --watch
+```
+
+The `--watch` flag activates the `develop` feature for real-time code synchronization. Your local changes in the following directories will be automatically synced:
+- `./app` → `/var/www/html/app`
+- `./resources` → `/var/www/html/resources`
+- `./routes` → `/var/www/html/routes`
+- `./config` → `/var/www/html/config`
+- `./database` → `/var/www/html/database`
+
+**🎉 Your application is now ready at http://localhost:8000**
 
 ## Services
 
@@ -80,50 +105,50 @@ The Docker setup includes the following services:
 ### Laravel Commands
 ```bash
 # Run artisan commands
-docker-compose exec app php artisan <command>
+docker compose exec app php artisan <command>
 
 # Install PHP dependencies
-docker-compose exec app composer install
+docker compose exec app composer install
 
 # Install Node.js dependencies
-docker-compose exec app npm install
+docker compose exec app npm install
 
 # Build assets
-docker-compose exec app npm run build
+docker compose exec app npm run build
 
 # Run tests
-docker-compose exec app php artisan test
+docker compose exec app php artisan test
 ```
 
 ### Database Commands
 ```bash
 # Access MySQL console
-docker-compose exec db mysql -u adalanka -p adalanka
+docker compose exec db mysql -u adalanka -p adalanka
 
 # Import database
-docker-compose exec -T db mysql -u adalanka -p adalanka < database.sql
+docker compose exec -T db mysql -u adalanka -p adalanka < database.sql
 
 # Export database
-docker-compose exec db mysqldump -u adalanka -p adalanka > database.sql
+docker compose exec db mysqldump -u adalanka -p adalanka > database.sql
 ```
 
 ### Container Management
 ```bash
 # View running containers
-docker-compose ps
+docker compose ps
 
 # View logs
-docker-compose logs app
-docker-compose logs db
+docker compose logs app
+docker compose logs db
 
 # Stop all services
-docker-compose down
+docker compose down
 
 # Stop and remove volumes
-docker-compose down -v
+docker compose down -v
 
 # Rebuild containers
-docker-compose up --build -d
+docker compose up --build -d
 ```
 
 ## Development Features
@@ -143,7 +168,7 @@ Xdebug is pre-configured for development:
 ### Hot Reloading
 For frontend development with hot reloading:
 ```bash
-docker-compose exec app npm run dev
+docker compose exec app npm run dev
 ```
 
 ## Production Deployment
@@ -155,7 +180,7 @@ For production deployment, use the production stage:
 docker build --target production -t adalanka:latest .
 
 # Or use docker-compose with production override
-docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 ```
 
 ## File Structure
@@ -173,16 +198,16 @@ docker/
 ### Permission Issues
 ```bash
 # Fix storage permissions
-docker-compose exec app chown -R www:www /var/www/html/storage
-docker-compose exec app chown -R www:www /var/www/html/bootstrap/cache
+docker compose exec app chown -R www:www /var/www/html/storage
+docker compose exec app chown -R www:www /var/www/html/bootstrap/cache
 ```
 
 ### Clear Caches
 ```bash
-docker-compose exec app php artisan cache:clear
-docker-compose exec app php artisan config:clear
-docker-compose exec app php artisan route:clear
-docker-compose exec app php artisan view:clear
+docker compose exec app php artisan cache:clear
+docker compose exec app php artisan config:clear
+docker compose exec app php artisan route:clear
+docker compose exec app php artisan view:clear
 ```
 
 ### Database Connection Issues

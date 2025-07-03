@@ -24,7 +24,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install opcache
 
 # Install Composer
-COPY --from=composer:2.7-bin /composer /usr/local/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 # Set working directory
 WORKDIR /var/www/html
@@ -39,7 +39,8 @@ COPY . .
 # Set proper permissions
 RUN chown -R www:www /var/www/html \
     && chmod -R 755 /var/www/html/storage \
-    && chmod -R 755 /var/www/html/bootstrap/cache
+    && chmod -R 755 /var/www/html/bootstrap/cache \
+    && mkdir -p /var/log/supervisor
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
@@ -71,7 +72,7 @@ FROM base AS development
 RUN composer install --optimize-autoloader --no-interaction
 
 # Install Xdebug for development
-RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
+RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS linux-headers \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
     && apk del .build-deps
