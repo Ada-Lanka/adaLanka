@@ -7,5 +7,254 @@
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+        'Segoe UI Symbol', 'Noto Color Emoji';   
 }
+
+/* CSS variables */
+:root {
+    --primary: #5F0055;
+    --primary-light: #ede9fe;
+    --secondary: #3B82F6;
+    --secondary-light: #DBEAFE;
+    --accent: #F59E0B;
+    --accent-light: #FEF3C7;
+    --success: #10B981;
+    --success-light: #D1FAE5;
+    --warning: #F59E0B;
+    --warning-light: #FEF3C7;
+    --error: #EF4444;
+    --error-light: #FEE2E2;
+    --gray-50: #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-300: #D1D5DB;
+    --gray-400: #9CA3AF;
+    --gray-500: #6B7280;
+    --gray-600: #4B5563;
+    --gray-700: #374151;
+    --gray-800: #1F2937;
+    --gray-900: #111827;
+    --gray-950: #030712;
+    --white: #FFFFFF;
+    --black: #000000;
+    --border-radius: 0.375rem;
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --transition: all 0.2s ease-in-out;
+}
+
+@layer base {
+    html, body {
+        background: var(--primary-light);
+        color: var(--black);
+        font-family: var(--font-sans);
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        transition: var(--transition); 
+        box-sizing: border-box;
+    }
+}
+
+/* Dark Mode Styles - Simple CSS */
+.dark body {
+    background-color: var(--gray-900);
+    color: var(--white);
+}
+
+.dark main {
+    background-color: var(--gray-900);
+    color: var(--white);
+}
+
+/* Navbar always stays purple regardless of mode */
+.navbar {
+    background: var(--primary);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Mobile menu dark mode */
+.dark .mobile-menu {
+    background-color: var(--gray-800);
+    color: var(--white);
+}
+
+.dark .mobile-menu h2 {
+    color: var(--white);
+}
+
+.dark .mobile-menu a {
+    color: var(--white);
+}
+
+.dark .mobile-menu .text-gray-600 {
+    color: #D1D5DB; /* gray-300 equivalent */
+}
+
+.dark .mobile-menu .border-gray-300 {
+    border-color: var(--gray-700);
+}
+
+/* Dark mode icon switching - Simplified approach */
+.dark .moon-icon {
+    display: none !important;
+}
+
+.dark .sun-icon {
+    display: block !important;
+}
+
+/* Content cards and elements in dark mode */
+.dark .content-card {
+    background-color: var(--gray-800);
+    border-color: var(--gray-700);
+    color: var(--white);
+}
+
+.dark .content-card h1,
+.dark .content-card h2,
+.dark .content-card h3 {
+    color: var(--white);
+}
+
+.dark .content-card p {
+    color: #D1D5DB; /* gray-300 equivalent */
+}
+
+.dark-theme {
+    color: var(--white);
+    background-color: var(--gray-900);
+}
+
+/* Mobile menu animations */
+.mobile-menu-enter {
+    transform: translateX(100%);
+}
+
+.mobile-menu-enter-active {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu-exit {
+    transform: translateX(0);
+}
+
+.mobile-menu-exit-active {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Icon styles */
+.navbar svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    stroke: currentColor;
+    display: block;
+}
+
+/* Ensure icons are visible on navbar */
+.navbar a svg,
+.navbar button svg {
+    color: inherit;
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+/* Mobile menu icons */
+#mobileMenuToggle svg,
+#darkModeToggle svg,
+#darkModeToggleMobile svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+/* Site Footer Styles */
+.site-footer {
+    background: var(--primary) !important;
+    color: var(--white);
+}
+
+.site-footer h2,
+.site-footer h3 {
+    color: var(--white);
+}
+
+.site-footer .footer-link:hover {
+    text-decoration: underline;
+}
+
+/* Footer remains purple in both modes */
+.dark .site-footer {
+    background: var(--primary) !important;
+    color: var(--white);
+}
+
+.dark .site-footer h2,
+.dark .site-footer h3 {
+    color: var(--white);
+}
+
+/* Categories Section Styles */
+.categories-section {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Dark mode for categories section */
+.dark .categories-section {
+    background-color: var(--gray-900);
+    color: var(--white);
+    border-color: var(--gray-700);
+}
+
+.dark .categories-section h2 {
+    color: var(--white);
+}
+
+/* Search input dark mode */
+.dark #search-input {
+    background-color: var(--gray-800);
+    color: var(--white);
+    border-color: var(--gray-700);
+}
+
+.dark #search-input::placeholder {
+    color: #9ca3af;
+}
+
+.dark #search-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(147, 51, 234, 0.2);
+}
+
+/* Search suggestions dark mode */
+.dark #search-suggestions {
+    background-color: var(--gray-800);
+    border-color: var(--gray-700);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Suggestion items styling */
+.suggestion-item {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: inherit;
+}
+
+.suggestion-item:hover {
+    background-color: #f3f4f6;
+}
+
+.dark .suggestion-item {
+    color: var(--white);
+}
+
+.dark .suggestion-item:hover {
+    background-color: #374151;
+}
+
