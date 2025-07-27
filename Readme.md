@@ -21,6 +21,13 @@
 -   Frontend: React.js, Bootstrap
 -   Backend: PHP, Laravel
 -   Database: MySQL
+-   Docker
+
+## URLs (only for Docker)
+
+-   Application: http://localhost:8000
+-   phpMyAdmin: http://localhost:8080
+-   MailHog: http://localhost:8025
 
 ## Contact
 

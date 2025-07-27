@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -44,5 +45,22 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+
+        /**
+     * Relationship: A user can have many posts (one-to-many).
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'creator');
+    }
+
+    /**
+     * Relationship: A user can have one admin record (if admin).
+     */
+    public function admin()
+    {
+        return $this->hasOne(Admin::class, 'user_id');
     }
 }
