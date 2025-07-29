@@ -33,6 +33,7 @@ export default {
                     DEFAULT: "#EF4444",
                     light: "#FEE2E2",
                 },
+                
             },
             fontFamily: {
                 sans: [

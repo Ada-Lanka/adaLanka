@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+
+/* CSS variables */
+:root {
+
+  --pink-light: #F8BAF1;
+  --pink-medium: #C500B1;
+  --pink-dark: #5F0055;
+
+
+}
