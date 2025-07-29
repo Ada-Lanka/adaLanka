@@ -15,6 +15,7 @@ class Admin extends Model
     // Fields allowed for mass assignment
     protected $fillable = [
         'user_id',
+        'post_count',
         'type', // admin role/type (e.g. superadmin, editor)
     ];
 
