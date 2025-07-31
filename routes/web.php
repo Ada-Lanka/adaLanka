@@ -6,7 +6,8 @@ use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\LatestPostController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\CategoryController;   
+use App\Http\Controllers\NewsController;
 Route::get('/posts', function () {
     return view('posts');
 });
@@ -30,8 +31,13 @@ Route::middleware(['auth'])->group(function () {
 
 Route::post('/image-upload', [AdminPostController::class, 'uploadImage'])->name('image.upload');
 
-    
 });
+
+
+
+Route::get('/categories/{category}/{page?}', [CategoryController::class, 'show'])
+    ->name('categories.show')
+    ->where('page', '[0-9]+');
 
  
 
@@ -43,3 +49,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/subcategories/top-news', [SubCategoryController::class, 'showTopNews']);
 Route::get('/subcategories/trending', [SubCategoryController::class, 'showTrending']);
+
+
+Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
+Route::post('/news/{slug}/comment', [NewsController::class, 'submitComment'])->name('news.comment');
