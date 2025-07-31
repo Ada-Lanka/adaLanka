@@ -6,7 +6,8 @@
             {{-- Left: Big Latest Card --}}
             <div class="md:col-span-2">
                 @php $mainPost = $topPosts->first(); @endphp
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="relative bg-white rounded-xl shadow-lg overflow-hidden group">
+                    <a href="{{ route('news.show', ['slug' => $mainPost->slug]) }}" target="_blank" class="absolute inset-0 z-10"></a>
                     <img src="{{ $mainPost->thumbnail }}" alt="{{ $mainPost->title }}" class="w-full h-64 object-cover">
 
                     <div class="p-6">
@@ -24,7 +25,8 @@
             {{-- Right: 4 Small Cards --}}
             <div class="flex flex-col space-y-4">
                 @foreach ($topPosts->skip(1)->take(4) as $post)
-                    <div class="flex bg-gradient-to-r from-pink-100 to-pink-200 rounded-xl overflow-hidden shadow-sm">
+                    <div class="relative flex bg-gradient-to-r from-pink-100 to-pink-200 rounded-xl overflow-hidden shadow-sm group">
+                        <a href="{{ route('news.show', ['slug' => $post->slug]) }}" target="_blank" class="absolute inset-0 z-10"></a>
                         <img src="{{ $post->thumbnail }}" alt="{{ $post->title }}" class="w-24 h-24 object-cover">
                         <div class="p-3 flex flex-col justify-between w-full">
                             <p class="text-sm font-semibold text-gray-800 leading-snug">

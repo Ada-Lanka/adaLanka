@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
 
 /**
  * Post Model
@@ -73,5 +75,17 @@ class Post extends Model
     public function galleries()
     {
         return $this->hasMany(Gallery::class, 'postid');
+    }
+
+     /**
+     * Method: Used to auto generate the slug according to title.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($post) {
+            $post->slug = Str::slug($post->title) . '-' . uniqid();
+        });
     }
 }

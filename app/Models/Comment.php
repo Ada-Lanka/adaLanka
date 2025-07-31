@@ -20,6 +20,9 @@ class Comment extends Model
         'comment',
         'created_at',
     ];
+    protected $casts = [
+    'created_at' => 'datetime',
+];
 
     // Disable automatic timestamps since created_at is manual
     public $timestamps = false;
