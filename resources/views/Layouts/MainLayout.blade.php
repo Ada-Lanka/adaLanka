@@ -10,9 +10,9 @@
 </head>
 <body class="h-full transition-colors duration-200 flex flex-col min-h-screen">
     <!-- Header Section -->
-    <nav class="w-full p-2">
-     
-    </nav>
+   <nav class="w-full p-2">
+     <x-nav-bar>
+   </nav>
     <!-- Main Layout wrapper -->
     <main class="container mx-auto flex-grow transition-colors duration-200">
         <!-- Categories Section -->
