@@ -1,13 +1,11 @@
 <?php
-
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\AdminPostController;
-
-
-Route::get('/', function () {
-    return view('home');
-});
+use App\Http\Controllers\LatestPostController;
+use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/posts', function () {
     return view('posts');
@@ -34,3 +32,14 @@ Route::post('/image-upload', [AdminPostController::class, 'uploadImage'])->name(
 
     
 });
+
+ 
+
+
+
+Route::get('/', [HomeController::class, 'index']);
+
+
+
+Route::get('/subcategories/top-news', [SubCategoryController::class, 'showTopNews']);
+Route::get('/subcategories/trending', [SubCategoryController::class, 'showTrending']);
