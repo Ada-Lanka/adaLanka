@@ -67,7 +67,7 @@ services:
                   path: ./package.json
 
     db:
-        image: mysql:8.0-oracle
+        image: mysql:8.0
         container_name: adalanka_db
         restart: unless-stopped
         ports:

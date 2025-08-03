@@ -40,19 +40,16 @@ RUN addgroup -g 1000 -S www && \
     adduser -u 1000 -S www -G www
 
 # Copy application files
-COPY . .
+COPY --chown=www:www . .
+
+# Copy environment file
+COPY --chown=www:www .env.docker .env
 
 # Set proper permissions
 RUN chown -R www:www /var/www/html \
     && chmod -R 755 /var/www/html/storage \
     && chmod -R 755 /var/www/html/bootstrap/cache \
     && mkdir -p /var/log/supervisor
-
-# Install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader --no-interaction
-
-# Install Node.js dependencies and build assets
-RUN npm install && npm run build
 
 # Configure Nginx
 COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
@@ -65,6 +62,10 @@ COPY docker/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
 COPY docker/php/php.ini /usr/local/etc/php/php.ini
 
+# Copy health check script
+COPY docker/healthcheck.sh /usr/local/bin/healthcheck.sh
+RUN chmod +x /usr/local/bin/healthcheck.sh
+
 # Expose port
 EXPOSE 80
 
@@ -74,8 +75,11 @@ CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 # Development stage
 FROM base AS development
 
-# Install development dependencies
+# Install development dependencies (with dev packages)
 RUN composer install --optimize-autoloader --no-interaction
+
+# Install Node.js dependencies and build assets for development
+RUN npm install && npm run build
 
 # Install Xdebug for development
 RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS linux-headers \
@@ -89,11 +93,18 @@ COPY docker/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 # Production stage
 FROM base AS production
 
+# Install production dependencies (no dev packages)
+RUN composer install --no-dev --optimize-autoloader --no-interaction
+
+# Install Node.js dependencies and build assets for production
+RUN npm ci && npm run build
+
 # Additional production optimizations
-RUN php artisan config:cache \
-    && php artisan route:cache \
-    && php artisan view:cache
+# Note: These commands should be run after deployment when .env is available
+# RUN php artisan config:cache \
+#     && php artisan route:cache \
+#     && php artisan view:cache
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost/health || exit 1
+    CMD /usr/local/bin/healthcheck.sh

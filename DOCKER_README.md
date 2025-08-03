@@ -198,14 +198,19 @@ docker compose exec app npm run dev
 
 ## Production Deployment
 
-For production deployment, use the production stage:
+For production deployment, use the production stage and override:
 
 ```bash
 # Build production image
-docker build --target production -t adalanka:latest .
+docker compose -f docker-compose.yml -f docker-compose.prod.yml build
 
-# Or use docker-compose with production override
+# Deploy production services
 docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+# Run production optimizations
+docker compose exec app php artisan config:cache
+docker compose exec app php artisan route:cache
+docker compose exec app php artisan view:cache
 ```
 
 ## File Structure
@@ -239,9 +244,33 @@ docker compose exec app php artisan view:clear
 
 ### Database Connection Issues
 
-1. Ensure database service is running: `docker-compose ps`
+1. Ensure database service is running: `docker compose ps`
 2. Check database credentials in `.env`
 3. Verify database host is set to `db` (service name)
+
+### Docker Build Issues
+
+If you encounter composer errors during build, try:
+
+```bash
+# Clean rebuild
+docker compose down
+docker compose build --no-cache
+docker compose up -d
+```
+
+### File Synchronization Issues
+
+If changes aren't reflected in the container:
+
+```bash
+# Copy specific files to container
+docker compose cp <local-file> app:/var/www/html/<container-path>
+
+# Or restart with watch mode
+docker compose down
+docker compose up --watch
+```
 
 ## Security Notes
 
