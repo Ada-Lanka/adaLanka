@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('Layouts.auth')
 
 @section('content')
 <div class="bg-white shadow-md rounded px-8 py-6">
