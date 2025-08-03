@@ -15,7 +15,9 @@ Route::get('/posts', function () {
 Route::get('/test', function () {
     return view('test');
 });
-
+Route::get('/home', function () {
+    return view('home');
+});
 
 
 // Show login form (GET)

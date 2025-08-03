@@ -1,120 +1,121 @@
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: development
-    container_name: adalanka_app
-    restart: unless-stopped
-    working_dir: /var/www/html
-    ports:
-      - "8000:80"
-    volumes:
-      - ./storage:/var/www/html/storage
-      - ./bootstrap/cache:/var/www/html/bootstrap/cache
-    depends_on:
-      - db
-      - redis
-    environment:
-      - APP_ENV=local
-      - APP_DEBUG=true
-      - DB_CONNECTION=mysql
-      - DB_HOST=db
-      - DB_PORT=3306
-      - DB_DATABASE=adalanka
-      - DB_USERNAME=adalanka
-      - DB_PASSWORD=secret
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - CACHE_DRIVER=redis
-      - SESSION_DRIVER=redis
-      - QUEUE_CONNECTION=redis
-    develop:
-      watch:
-        - action: sync
-          path: ./app
-          target: /var/www/html/app
-        - action: sync
-          path: ./resources
-          target: /var/www/html/resources
-        - action: sync
-          path: ./routes
-          target: /var/www/html/routes
-        - action: sync
-          path: ./config
-          target: /var/www/html/config
-        - action: sync
-          path: ./database
-          target: /var/www/html/database
-        - action: sync
-          path: ./composer.json
-          target: /var/www/html/composer.json
-        - action: sync
-          path: ./composer.lock
-          target: /var/www/html/composer.lock
-        - action: sync
-          path: ./package.json
-          target: /var/www/html/package.json
-        - action: sync
-          path: ./package-lock.json
-          target: /var/www/html/package-lock.json
-          ignore:
-            - node_modules/
-        - action: rebuild
-          path: ./composer.json
-        - action: rebuild
-          path: ./package.json
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: development
+        container_name: adalanka_app
+        restart: unless-stopped
+        working_dir: /var/www/html
+        ports:
+            - "8000:80"
+        volumes:
+            - ./storage:/var/www/html/storage
+            - ./bootstrap/cache:/var/www/html/bootstrap/cache
+        depends_on:
+            - db
+            - redis
+        environment:
+            - APP_ENV=local
+            - APP_DEBUG=true
+            - APP_KEY=base64:jTnJ594NlrXHb6CCjj4Iv2UIC1CWL3PJJ5CiOW5Prmk=
+            - DB_CONNECTION=mysql
+            - DB_HOST=db
+            - DB_PORT=3306
+            - DB_DATABASE=adalanka
+            - DB_USERNAME=adalanka
+            - DB_PASSWORD=secret
+            - REDIS_HOST=redis
+            - REDIS_PORT=6379
+            - CACHE_DRIVER=redis
+            - SESSION_DRIVER=redis
+            - QUEUE_CONNECTION=redis
+        develop:
+            watch:
+                - action: sync
+                  path: ./app
+                  target: /var/www/html/app
+                - action: sync
+                  path: ./resources
+                  target: /var/www/html/resources
+                - action: sync
+                  path: ./routes
+                  target: /var/www/html/routes
+                - action: sync
+                  path: ./config
+                  target: /var/www/html/config
+                - action: sync
+                  path: ./database
+                  target: /var/www/html/database
+                - action: sync
+                  path: ./composer.json
+                  target: /var/www/html/composer.json
+                - action: sync
+                  path: ./composer.lock
+                  target: /var/www/html/composer.lock
+                - action: sync
+                  path: ./package.json
+                  target: /var/www/html/package.json
+                - action: sync
+                  path: ./package-lock.json
+                  target: /var/www/html/package-lock.json
+                  ignore:
+                      - node_modules/
+                - action: rebuild
+                  path: ./composer.json
+                - action: rebuild
+                  path: ./package.json
 
-  db:
-    image: mysql:8.0-oracle
-    container_name: adalanka_db
-    restart: unless-stopped
-    ports:
-      - "3306:3306"
-    environment:
-      - MYSQL_DATABASE=adalanka
-      - MYSQL_USER=adalanka
-      - MYSQL_PASSWORD=secret
-      - MYSQL_ROOT_PASSWORD=root
-    volumes:
-      - db_data:/var/lib/mysql
-      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    db:
+        image: mysql:8.0
+        container_name: adalanka_db
+        restart: unless-stopped
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_DATABASE=adalanka
+            - MYSQL_USER=adalanka
+            - MYSQL_PASSWORD=secret
+            - MYSQL_ROOT_PASSWORD=root
+        volumes:
+            - db_data:/var/lib/mysql
+            - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
 
-  redis:
-    image: redis:7-alpine
-    container_name: adalanka_redis
-    restart: unless-stopped
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
+    redis:
+        image: redis:7-alpine
+        container_name: adalanka_redis
+        restart: unless-stopped
+        ports:
+            - "6379:6379"
+        volumes:
+            - redis_data:/data
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    container_name: adalanka_phpmyadmin
-    restart: unless-stopped
-    ports:
-      - "8080:80"
-    environment:
-      - PMA_HOST=db
-      - PMA_PORT=3306
-      - PMA_USER=root
-      - PMA_PASSWORD=root
-    depends_on:
-      - db
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:latest
+        container_name: adalanka_phpmyadmin
+        restart: unless-stopped
+        ports:
+            - "8080:80"
+        environment:
+            - PMA_HOST=db
+            - PMA_PORT=3306
+            - PMA_USER=root
+            - PMA_PASSWORD=root
+        depends_on:
+            - db
 
-  mailhog:
-    image: mailhog/mailhog:latest
-    container_name: adalanka_mailhog
-    restart: unless-stopped
-    ports:
-      - "8025:8025"
-      - "1025:1025"
+    mailhog:
+        image: mailhog/mailhog:latest
+        container_name: adalanka_mailhog
+        restart: unless-stopped
+        ports:
+            - "8025:8025"
+            - "1025:1025"
 
 volumes:
-  db_data:
-  redis_data:
+    db_data:
+    redis_data:
 
 networks:
-  default:
-    driver: bridge
+    default:
+        driver: bridge

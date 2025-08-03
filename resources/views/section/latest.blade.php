@@ -2,7 +2,7 @@
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
 
         {{-- Column 1-3: Latest Cards Loop --}}
-        <div class="md:col-span-3 space-y-6"><a href="{{ url('/posts/' . $post->postid) }}">
+        <div class="md:col-span-3 space-y-6">
 
             @foreach ($posts as $post)
                 <div class="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl">

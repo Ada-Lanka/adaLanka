@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('Layouts.admin')
 
 @section('content')
 <div class="min-h-screen bg-gradient-to-br from-white via-[var(--pink-light)] to-white py-10 px-2 md:px-12 lg:px-24">

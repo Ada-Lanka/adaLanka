@@ -1,4 +1,4 @@
-@extends('layouts.news-post')
+@extends('Layouts.news-post')
 
 @section('title', $post->title)
 

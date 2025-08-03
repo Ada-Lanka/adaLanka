@@ -24,7 +24,7 @@ docker compose exec app php artisan migrate
 docker compose down && docker compose up --watch
 ```
 
-**🎉 Your app will be ready at http://localhost:8000**
+**🎉 Your app will be ready at <http://localhost:8000>**
 
 ## Requirements
 
@@ -38,6 +38,7 @@ Follow these steps in order:
 ### 1. Environment Setup
 
 Copy the Docker environment file:
+
 ```bash
 cp .env.docker .env
 ```
@@ -45,11 +46,13 @@ cp .env.docker .env
 ### 2. Build and Start Services
 
 Build the Docker images and start all services:
+
 ```bash
 docker compose up --build -d
 ```
 
 #### 3. copy .env to docker
+
 ```bash
 docker compose exec app cp .env.docker .env
 ```
@@ -57,6 +60,7 @@ docker compose exec app cp .env.docker .env
 ### 4. Generate Application Key
 
 Generate Laravel application key:
+
 ```bash
 docker compose exec app php artisan key:generate
 ```
@@ -64,11 +68,13 @@ docker compose exec app php artisan key:generate
 ### 5. Initialize Database
 
 Run database migrations:
+
 ```bash
 docker compose exec app php artisan migrate
 ```
 
 (Optional) Run seeders:
+
 ```bash
 docker compose exec app php artisan db:seed
 ```
@@ -76,19 +82,21 @@ docker compose exec app php artisan db:seed
 ### 6. Start Development Mode with Live Sync
 
 Stop the current containers and start with the new develop feature:
+
 ```bash
 docker compose down
 docker compose up --watch
 ```
 
 The `--watch` flag activates the `develop` feature for real-time code synchronization. Your local changes in the following directories will be automatically synced:
+
 - `./app` → `/var/www/html/app`
 - `./resources` → `/var/www/html/resources`
 - `./routes` → `/var/www/html/routes`
 - `./config` → `/var/www/html/config`
 - `./database` → `/var/www/html/database`
 
-**🎉 Your application is now ready at http://localhost:8000**
+**🎉 Your application is now ready at <http://localhost:8000>**
 
 ## Services
 
@@ -104,13 +112,14 @@ The Docker setup includes the following services:
 
 ## Access Points
 
-- **Application**: http://localhost:8000
-- **phpMyAdmin**: http://localhost:8080
-- **MailHog**: http://localhost:8025
+- **Application**: <http://localhost:8000>
+- **phpMyAdmin**: <http://localhost:8080>
+- **MailHog**: <http://localhost:8025>
 
 ## Common Commands
 
 ### Laravel Commands
+
 ```bash
 # Run artisan commands
 docker compose exec app php artisan <command>
@@ -129,6 +138,7 @@ docker compose exec app php artisan test
 ```
 
 ### Database Commands
+
 ```bash
 # Access MySQL console
 docker compose exec db mysql -u adalanka -p adalanka
@@ -141,6 +151,7 @@ docker compose exec db mysqldump -u adalanka -p adalanka > database.sql
 ```
 
 ### Container Management
+
 ```bash
 # View running containers
 docker compose ps
@@ -162,38 +173,49 @@ docker compose up --build -d
 ## Development Features
 
 ### Live Code Synchronization
+
 The `develop` feature in `docker-compose.yml` provides:
+
 - Real-time code sync without Docker volumes
 - Automatic rebuilds on package.json/composer.json changes
 - Better performance than traditional bind mounts
 
 ### Xdebug Support
+
 Xdebug is pre-configured for development:
+
 - Listen port: 9003
 - IDE key: VSCODE
 - Client host: host.docker.internal
 
 ### Hot Reloading
+
 For frontend development with hot reloading:
+
 ```bash
 docker compose exec app npm run dev
 ```
 
 ## Production Deployment
 
-For production deployment, use the production stage:
+For production deployment, use the production stage and override:
 
 ```bash
 # Build production image
-docker build --target production -t adalanka:latest .
+docker compose -f docker-compose.yml -f docker-compose.prod.yml build
 
-# Or use docker-compose with production override
+# Deploy production services
 docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+# Run production optimizations
+docker compose exec app php artisan config:cache
+docker compose exec app php artisan route:cache
+docker compose exec app php artisan view:cache
 ```
 
 ## File Structure
 
-```
+```md
 docker/
 ├── nginx/          # Nginx configuration
 ├── php/            # PHP-FPM and PHP configuration
@@ -204,6 +226,7 @@ docker/
 ## Troubleshooting
 
 ### Permission Issues
+
 ```bash
 # Fix storage permissions
 docker compose exec app chown -R www:www /var/www/html/storage
@@ -211,6 +234,7 @@ docker compose exec app chown -R www:www /var/www/html/bootstrap/cache
 ```
 
 ### Clear Caches
+
 ```bash
 docker compose exec app php artisan cache:clear
 docker compose exec app php artisan config:clear
@@ -219,9 +243,34 @@ docker compose exec app php artisan view:clear
 ```
 
 ### Database Connection Issues
-1. Ensure database service is running: `docker-compose ps`
+
+1. Ensure database service is running: `docker compose ps`
 2. Check database credentials in `.env`
 3. Verify database host is set to `db` (service name)
+
+### Docker Build Issues
+
+If you encounter composer errors during build, try:
+
+```bash
+# Clean rebuild
+docker compose down
+docker compose build --no-cache
+docker compose up -d
+```
+
+### File Synchronization Issues
+
+If changes aren't reflected in the container:
+
+```bash
+# Copy specific files to container
+docker compose cp <local-file> app:/var/www/html/<container-path>
+
+# Or restart with watch mode
+docker compose down
+docker compose up --watch
+```
 
 ## Security Notes
 
