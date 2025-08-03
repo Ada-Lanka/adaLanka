@@ -1,4 +1,4 @@
-@extends('Layouts.MainLayout')
+@extends('Layouts.Index')
 
 @section('content')
 <div class="container mx-auto px-4 py-8">

@@ -1,5 +1,5 @@
 <!-- resources/views/home.blade.php -->
-@extends('Layouts.MainLayout')
+@extends('Layouts.Index')
 
 @section('content')
 <div class="max-w-4xl mx-auto mt-8">
