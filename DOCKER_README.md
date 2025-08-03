@@ -210,7 +210,7 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 
 ## File Structure
 
-```
+```md
 docker/
 ├── nginx/          # Nginx configuration
 ├── php/            # PHP-FPM and PHP configuration
