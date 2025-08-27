@@ -23,4 +23,13 @@ class Category extends Model
     {
         return $this->belongsToMany(Post::class, 'post_categories', 'category_id', 'postid');
     }
+
+    protected static function boot()
+{
+    parent::boot();
+
+    static::saving(function ($category) {
+        $category->slug = \Str::slug($category->category_name);
+    });
+}
 }

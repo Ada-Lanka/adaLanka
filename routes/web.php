@@ -36,8 +36,8 @@ Route::post('/image-upload', [AdminPostController::class, 'uploadImage'])->name(
 });
 
 
+Route::get('/categories/{slug}/{page}', [CategoryController::class, 'show'])
 
-Route::get('/categories/{category}/{page?}', [CategoryController::class, 'show'])
     ->name('categories.show')
     ->where('page', '[0-9]+');
 

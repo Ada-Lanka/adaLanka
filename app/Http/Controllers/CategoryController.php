@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
 
+
+
 class CategoryController extends Controller
 {
-    public function show($categoryName, $page = 1)
+    public function show($slug, $page = 1)
     {
-        $category = Category::where('category_name', $categoryName)->firstOrFail();
+        $category = Category::where('slug', $slug)->firstOrFail();
 
         // Get posts in this category, paginate 10 per page
         $postsQuery = $category->posts()->orderBy('created_at', 'desc');
