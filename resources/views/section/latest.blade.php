@@ -17,7 +17,12 @@
                             </p>
                         </div>
                         <div class="mt-4">
-                            <a href="{{ route('news.show', ['slug' => $post->slug]) }}" target="_blank" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Read More</a>
+
+                        <a href="{{ route('news.show', ['slug' => $post->slug]) }}"  
+   class="inline-block px-6 py-2 border-2 border-purple-700 text-purple-800 font-semibold rounded-full hover:bg-purple-700 hover:text-white transition">
+    Read more <i class="fas fa-angle-right ml-1"></i>
+</a>
+
                         </div>
                     </div>
 

@@ -20,9 +20,11 @@
                         <p class="text-gray-700 mb-6">
                             {{ \Illuminate\Support\Str::words(strip_tags($post->description), 25, '...') }}
                         </p>
-                        <a href="{{ route('news.show', ['slug' => $latestPosts->slug]) }}"  class="inline-block px-6 py-2 border-2 border-purple-700 text-purple-800 font-semibold rounded-full hover:bg-purple-700 hover:text-white transition">
-                            Read more <i class="fas fa-angle-right ml-1"></i>
-                        </a>
+                     <a href="{{ route('news.show', ['slug' => $post->slug]) }}"  
+   class="inline-block px-6 py-2 border-2 border-purple-700 text-purple-800 font-semibold rounded-full hover:bg-purple-700 hover:text-white transition">
+   Read more <i class="fas fa-angle-right ml-1"></i>
+</a>
+
                     </div>
                 </div>
             @endforeach
