@@ -22,6 +22,23 @@ docker compose exec app php artisan migrate
 
 # 6. Start development mode with live sync
 docker compose down && docker compose up --watch
+
+# 7. Run the only one seed script
+#    Admin seed script -
+docker exec adalanka_app php artisan db:seed --class=AdminUserSeeder
+
+# 8. Run All seed scripts
+docker exec adalanka_app php artisan db:seed
+
+# 9. Reset and seed the database
+docker exec adalanka_app php artisan migrate:fresh --seed
+
+#-------------------------------------------------------
+# 10. Interactive shell in the container:
+#     You can also enter the container and run commands interactively
+docker exec -it adalanka_app bash
+# Then inside the container:
+php artisan db:seed --class=AdminUserSeeder
 ```
 
 **🎉 Your app will be ready at <http://localhost:8000>**
