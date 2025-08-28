@@ -28,8 +28,8 @@ docker compose down && docker compose up --watch
 
 ## Requirements
 
-- Docker Engine 20.10.0 or higher
-- Docker Compose 2.0 or higher
+-   Docker Engine 20.10.0 or higher
+-   Docker Compose 2.0 or higher
 
 ## Quick Start
 
@@ -90,11 +90,11 @@ docker compose up --watch
 
 The `--watch` flag activates the `develop` feature for real-time code synchronization. Your local changes in the following directories will be automatically synced:
 
-- `./app` → `/var/www/html/app`
-- `./resources` → `/var/www/html/resources`
-- `./routes` → `/var/www/html/routes`
-- `./config` → `/var/www/html/config`
-- `./database` → `/var/www/html/database`
+-   `./app` → `/var/www/html/app`
+-   `./resources` → `/var/www/html/resources`
+-   `./routes` → `/var/www/html/routes`
+-   `./config` → `/var/www/html/config`
+-   `./database` → `/var/www/html/database`
 
 **🎉 Your application is now ready at <http://localhost:8000>**
 
@@ -102,19 +102,19 @@ The `--watch` flag activates the `develop` feature for real-time code synchroniz
 
 The Docker setup includes the following services:
 
-| Service | Port | Description |
-|---------|------|-------------|
-| **app** | 8000 | Laravel application (Nginx + PHP-FPM) |
-| **db** | 3306 | MySQL 8.0 database |
-| **redis** | 6379 | Redis for caching and sessions |
-| **phpmyadmin** | 8080 | Database management interface |
-| **mailhog** | 8025 | Email testing tool |
+| Service        | Port | Description                           |
+| -------------- | ---- | ------------------------------------- |
+| **app**        | 8000 | Laravel application (Nginx + PHP-FPM) |
+| **db**         | 3306 | MySQL 8.0 database                    |
+| **redis**      | 6379 | Redis for caching and sessions        |
+| **phpmyadmin** | 8080 | Database management interface         |
+| **mailhog**    | 8025 | Email testing tool                    |
 
 ## Access Points
 
-- **Application**: <http://localhost:8000>
-- **phpMyAdmin**: <http://localhost:8080>
-- **MailHog**: <http://localhost:8025>
+-   **Application**: <http://localhost:8000>
+-   **phpMyAdmin**: <http://localhost:8080>
+-   **MailHog**: <http://localhost:8025>
 
 ## Common Commands
 
@@ -176,17 +176,17 @@ docker compose up --build -d
 
 The `develop` feature in `docker-compose.yml` provides:
 
-- Real-time code sync without Docker volumes
-- Automatic rebuilds on package.json/composer.json changes
-- Better performance than traditional bind mounts
+-   Real-time code sync without Docker volumes
+-   Automatic rebuilds on package.json/composer.json changes
+-   Better performance than traditional bind mounts
 
 ### Xdebug Support
 
 Xdebug is pre-configured for development:
 
-- Listen port: 9003
-- IDE key: VSCODE
-- Client host: host.docker.internal
+-   Listen port: 9003
+-   IDE key: VSCODE
+-   Client host: host.docker.internal
 
 ### Hot Reloading
 
@@ -217,10 +217,10 @@ docker compose exec app php artisan view:cache
 
 ```md
 docker/
-├── nginx/          # Nginx configuration
-├── php/            # PHP-FPM and PHP configuration
-├── supervisor/     # Supervisor configuration
-└── mysql/          # MySQL configuration
+├── nginx/ # Nginx configuration
+├── php/ # PHP-FPM and PHP configuration
+├── supervisor/ # Supervisor configuration
+└── mysql/ # MySQL configuration
 ```
 
 ## Troubleshooting
@@ -274,8 +274,8 @@ docker compose up --watch
 
 ## Security Notes
 
-- Change default passwords in production
-- Use proper SSL certificates
-- Configure firewall rules
-- Update base images regularly
-- Review and update PHP configurations for production use
+-   Change default passwords in production
+-   Use proper SSL certificates
+-   Configure firewall rules
+-   Update base images regularly
+-   Review and update PHP configurations for production use
