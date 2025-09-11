@@ -15,7 +15,12 @@ class DatabaseSeeder extends Seeder
     {
 
 
-        $this->call([SubCategorySeeder::class,AdminUserSeeder::class,CategorySeeder::class]);
+        $this->call([
+            SubCategorySeeder::class,
+            AdminUserSeeder::class,
+            CategorySeeder::class,
+            PostSeeder::class
+        ]);
 
     }
 }
