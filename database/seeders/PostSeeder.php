@@ -35,60 +35,70 @@ class PostSeeder extends Seeder
             [
                 'title' => 'Sri Lanka Announces New Digital Economy Initiative',
                 'description' => 'The government of Sri Lanka today unveiled an ambitious digital economy initiative aimed at transforming the country into a digital hub for South Asia. The comprehensive plan includes investments in digital infrastructure, technology education, and startup support programs. Minister of Technology stated that this initiative will create over 100,000 new jobs in the tech sector over the next five years. The program will focus on areas such as artificial intelligence, blockchain technology, and digital financial services. International tech companies have already expressed interest in establishing operations in Sri Lanka as part of this initiative.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop',
                 'categories' => [$techCategory, $politicsCategory],
                 'keywords' => ['digital economy', 'technology', 'sri lanka', 'government', 'startup']
             ],
             [
                 'title' => 'Climate Change Summit Focuses on Renewable Energy Solutions',
                 'description' => 'World leaders gathered in Colombo for the annual Climate Change Summit, with a special focus on renewable energy solutions for developing nations. The three-day summit brought together environmental scientists, policy makers, and industry leaders to discuss sustainable energy alternatives. Key topics included solar power adoption, wind energy projects, and innovative carbon capture technologies. Sri Lanka announced its commitment to achieve 70% renewable energy by 2030, with significant investments in solar and wind projects already underway.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop',
                 'categories' => [$energyCategory, $politicsCategory],
                 'keywords' => ['climate change', 'renewable energy', 'solar power', 'environment', 'sustainability']
             ],
             [
                 'title' => 'Local Cricket Team Wins International Championship',
                 'description' => 'In a thrilling final match, the Sri Lankan cricket team secured victory in the International Cricket Championship, defeating the defending champions by 5 wickets. The match, held at the R. Premadasa Stadium in Colombo, drew over 35,000 spectators and millions of television viewers worldwide. Star player Kusal Mendis scored a spectacular century, leading the team to this historic victory. This win marks Sri Lanka\'s return to form after several years of rebuilding the team with young talent.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&h=600&fit=crop',
                 'categories' => [$sportsCategory],
                 'keywords' => ['cricket', 'sports', 'championship', 'sri lanka', 'victory']
             ],
             [
                 'title' => 'New Healthcare Initiative Improves Rural Medical Access',
                 'description' => 'A groundbreaking healthcare initiative has been launched to improve medical access in rural areas of Sri Lanka. The program includes mobile medical units, telemedicine services, and training programs for rural healthcare workers. The initiative aims to reach over 2 million people in remote areas who previously had limited access to quality healthcare. Digital health records and AI-assisted diagnosis tools are being deployed to ensure consistent care quality across all regions.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop',
                 'categories' => [$healthCategory, $techCategory],
                 'keywords' => ['healthcare', 'rural development', 'telemedicine', 'medical access', 'technology']
             ],
             [
                 'title' => 'Tourism Industry Shows Strong Recovery with Record Bookings',
                 'description' => 'Sri Lanka\'s tourism industry is experiencing a remarkable recovery with record-breaking advance bookings for the upcoming season. The Sri Lanka Tourism Development Authority reported a 150% increase in international bookings compared to last year. New eco-tourism initiatives and cultural heritage tours are attracting visitors from Europe, Asia, and North America. The government has introduced new visa facilitation measures and improved airport infrastructure to support the growing tourist influx.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
                 'categories' => [$businessCategory],
                 'keywords' => ['tourism', 'recovery', 'bookings', 'economy', 'travel']
             ],
             [
                 'title' => 'Revolutionary Tea Plantation Uses AI for Quality Control',
                 'description' => 'A leading tea plantation in the hill country has implemented artificial intelligence technology to revolutionize tea quality control and production efficiency. The AI system monitors soil conditions, weather patterns, and leaf quality in real-time, optimizing harvesting times and processing methods. This innovation has resulted in a 30% increase in premium grade tea production and significant cost savings. The technology is now being adopted by other plantations across the country.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?w=800&h=600&fit=crop',
                 'categories' => [$techCategory, $businessCategory],
                 'keywords' => ['artificial intelligence', 'tea industry', 'agriculture', 'innovation', 'quality control']
             ],
             [
                 'title' => 'National Film Festival Celebrates Local Cinema Achievements',
                 'description' => 'The annual National Film Festival concluded with a grand ceremony celebrating the achievements of local cinema. Over 150 films were showcased during the week-long event, highlighting the diversity and creativity of Sri Lankan filmmakers. The festival featured categories for feature films, documentaries, and short films, with special recognition for emerging talent. International film critics praised the high quality of productions and the unique storytelling approaches of local directors.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1489599510025-b50100293b4f?w=800&h=600&fit=crop',
                 'categories' => [$entertainmentCategory],
                 'keywords' => ['film festival', 'cinema', 'entertainment', 'culture', 'local talent']
             ],
             [
                 'title' => 'Startup Accelerator Program Launches to Support Young Entrepreneurs',
                 'description' => 'A new startup accelerator program has been launched to support young entrepreneurs in developing innovative business solutions. The program provides mentorship, funding opportunities, and workspace facilities for early-stage startups. Focus areas include fintech, agtech, healthtech, and e-commerce solutions tailored for the South Asian market. The initiative is backed by both government support and private sector investment, with plans to support 100 startups in its first year.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop',
                 'categories' => [$businessCategory, $techCategory],
                 'keywords' => ['startup', 'entrepreneurship', 'innovation', 'business', 'investment']
             ],
             [
                 'title' => 'Marine Conservation Project Protects Endangered Species',
                 'description' => 'A comprehensive marine conservation project has been launched to protect endangered species in Sri Lankan waters. The initiative includes establishing new marine protected areas, implementing sustainable fishing practices, and conducting research on marine biodiversity. Special attention is being given to protecting sea turtles, whales, and coral reefs. The project involves collaboration between local communities, government agencies, and international conservation organizations.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop',
                 'categories' => [$energyCategory],
                 'keywords' => ['marine conservation', 'endangered species', 'environment', 'biodiversity', 'protection']
             ],
             [
                 'title' => 'Education Ministry Introduces Coding Classes in Primary Schools',
                 'description' => 'The Ministry of Education announced the introduction of coding and computer science classes in primary schools nationwide. The curriculum will cover basic programming concepts, digital literacy, and problem-solving skills using age-appropriate tools and games. Teacher training programs are being conducted to ensure quality education delivery. This initiative aims to prepare students for the digital economy and foster computational thinking from an early age.',
+                'thumbnail' => 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop',
                 'categories' => [$techCategory, $politicsCategory],
                 'keywords' => ['education', 'coding', 'programming', 'digital literacy', 'schools']
             ]
@@ -100,6 +110,7 @@ class PostSeeder extends Seeder
             $post = Post::create([
                 'title' => $postData['title'],
                 'description' => $postData['description'],
+                'thumbnail' => $postData['thumbnail'],
                 'creator' => $adminUser->id
             ]);
 
