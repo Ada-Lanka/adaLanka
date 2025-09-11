@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
 
 
-        $this->call([SubCategorySeeder::class,AdminUserSeeder::class,CategorySeeder::class,BackfillCategorySeeder::class]);
+        $this->call([SubCategorySeeder::class,AdminUserSeeder::class,CategorySeeder::class]);
 
     }
 }
