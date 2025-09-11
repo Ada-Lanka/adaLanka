@@ -22,6 +22,7 @@ class Post extends Model
     // Fields allowed for mass assignment
     protected $fillable = [
         'title',
+        'slug',
         'description',
         'thumbnail',
         'creator',

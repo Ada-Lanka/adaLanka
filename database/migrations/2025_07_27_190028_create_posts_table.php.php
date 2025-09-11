@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id('postid');
             $table->string('title');
+            $table->string('slug')->unique();
             $table->text('description');
             $table->string('thumbnail')->nullable();
             $table->json('keywords')->nullable(); // Legacy fallback; not needed if using post_keywords table

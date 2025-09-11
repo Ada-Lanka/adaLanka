@@ -13,32 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
- 
-         /* Run this in production level
         $this->call([
+            SubCategorySeeder::class,
             AdminUserSeeder::class,
             CategorySeeder::class,
-            SubCategorySeeder::class,
+            PostSeeder::class
         ]);
-         */
-
-        // Run this for testing
-        $this->call([
-            UsersTableSeeder::class,
-            AdminTableSeeder::class,
-            CategoriesTableSeeder::class,
-            SubCategoriesTableSeeder::class,
-            PostsTableSeeder::class,
-            CommentsTableSeeder::class,
-            KeywordsTableSeeder::class,
-            PostCategoriesTableSeeder::class,
-            PostSubCategoriesTableSeeder::class,
-            PostKeywordsTableSeeder::class,
-        ]);
-
-
-
-       
     }
 }
 
