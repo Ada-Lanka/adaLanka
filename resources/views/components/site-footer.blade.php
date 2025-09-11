@@ -13,13 +13,12 @@
             <div class="flex-1">
                 <h3 class="text-lg font-semibold mb-4">Categories</h3>
                 <div class="grid grid-cols-2 gap-2">
-                    <a href="/" class="footer-link text-purple-100 hover:text-white hover:underline transition-colors text-sm">Politics</a>
-                    <a href="/" class="footer-link text-purple-100 hover:text-white hover:underline transition-colors text-sm">Health</a>
-                    <a href="/" class="footer-link text-purple-100 hover:text-white hover:underline transition-colors text-sm">Energy</a>
-                    <a href="/" class="footer-link text-purple-100 hover:text-white hover:underline transition-colors text-sm">Tech</a>
-                    <a href="/" class="footer-link text-purple-100 hover:text-white hover:underline transition-colors text-sm">Entertainment</a>
-                    <a href="/" class="footer-link text-purple-100 hover:text-white hover:underline transition-colors text-sm">Business</a>
-                    <a href="/" class="footer-link text-purple-100 hover:text-white hover:underline transition-colors text-sm">Sports</a>
+                    @php
+                        $categories = \App\Models\Category::all();
+                    @endphp
+                    @foreach($categories as $category)
+                        <a href="/category/{{ $category->slug }}" class="footer-link text-purple-100 hover:text-white hover:underline transition-colors text-sm">{{ $category->category_name }}</a>
+                    @endforeach
                 </div>
             </div>
 

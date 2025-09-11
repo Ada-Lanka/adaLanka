@@ -19,7 +19,7 @@
     </main>
 
     <!-- Footer -->
-
+    <x-site-footer />
 
 </body>
 </html>

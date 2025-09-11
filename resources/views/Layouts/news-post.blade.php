@@ -34,10 +34,8 @@
         @yield('content')
     </main>
 
-    {{-- Optional: Footer --}}
-    <footer class="bg-white border-t mt-12 py-6 text-center text-sm text-gray-500">
-        &copy; {{ date('Y') }} YourSiteName. All rights reserved.
-    </footer>
+    {{-- Footer --}}
+    <x-site-footer />
 
 </body>
 </html>

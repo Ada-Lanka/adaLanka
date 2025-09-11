@@ -23,6 +23,6 @@
         </div>
     </main>
     <!-- Footer Section -->
-   
+    <x-site-footer />
 </body>
 </html>
