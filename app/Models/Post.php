@@ -89,4 +89,6 @@ class Post extends Model
             $post->slug = Str::slug($post->title) . '-' . uniqid();
         });
     }
+
+    
 }

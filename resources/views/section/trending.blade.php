@@ -1,6 +1,6 @@
 @if ($latestPosts->isNotEmpty())
 <div class="container mx-auto px-4 py-8">
-    <h2 class="text-2xl font-bold mb-6 text-black">Latest</h2>
+    <h2 class="text-2xl font-bold mb-6 text-black">Trending</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
         {{-- Left: Latest Posts --}}

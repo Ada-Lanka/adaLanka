@@ -13,10 +13,10 @@ class AdminUserSeeder extends Seeder
     {
         // Create or update the admin user by email (unique identifier)
         $user = User::updateOrCreate(
-            ['email' => 'admin@example.com'],  // Unique field for lookup
+            ['email' => 'admin@example.com'], 
             [
                 'name' => 'Admin User',
-                'username' => 'adminuser',     // Added username here
+                'username' => 'adminuser',  
                 'password' => Hash::make('adminTest1'),
                 'role' => 'admin',
             ]
