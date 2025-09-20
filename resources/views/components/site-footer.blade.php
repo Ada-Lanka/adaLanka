@@ -1,67 +1,101 @@
-<footer class="site-footer bg-gray-800 text-white py-8 mt-auto">
-    <div class="container mx-auto px-4">
-        <!-- Main Footer Content -->
-        <div class="flex flex-col md:flex-row gap-8 mb-6">
-            
-            <!-- Section 1: Logo -->
-            <div class="flex-1">
-                <h2 class="text-2xl font-bold mb-4">Ada Lanka</h2>
-                <p class="text-gray-300 text-sm">Your trusted source for news and information across Sri Lanka.</p>
+<!-- resources/views/components/site-footer.blade.php -->
+<footer class="w-full text-white py-10" style="background: linear-gradient(90deg, #5F0055, #C500B1);">
+    <div class="max-w-7xl mx-auto px-6">
+        <!-- Desktop (4 columns) -->
+        <div class="hidden md:grid grid-cols-4 gap-8">
+
+            <!-- Logo + Left Menu -->
+            <div>
+                <img src="{{ asset('images/logo.png') }}" alt="Ada Lanka" class="w-50 mb-4">
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:underline">Home</a></li>
+                    <li><a href="#" class="hover:underline">Ada Lanka Hub</a></li>
+                    <li><a href="#" class="hover:underline">Gallery</a></li>
+                </ul>
             </div>
 
-            <!-- Section 2: Links -->
-            <div class="flex-1">
-                <h3 class="text-lg font-semibold mb-4">Categories</h3>
-                <div class="grid grid-cols-2 gap-2">
-                    @php
-                        $categories = \App\Models\Category::all();
-                    @endphp
-                    @foreach($categories as $category)
-                        <a href="/category/{{ $category->slug }}" class="footer-link text-gray-300 hover:text-white hover:underline transition-colors text-sm">{{ $category->category_name }}</a>
-                    @endforeach
-                </div>
+            <!-- Categories -->
+            <div>
+                <h3 class="font-semibold mb-3">Explore</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:underline">Politics & Policy</a></li>
+                    <li><a href="#" class="hover:underline">Business</a></li>
+                    <li><a href="#" class="hover:underline">Health</a></li>
+                    <li><a href="#" class="hover:underline">Energy & Climate</a></li>
+                    <li><a href="#" class="hover:underline">Tech</a></li>
+                    <li><a href="#" class="hover:underline">Sports</a></li>
+                    <li><a href="#" class="hover:underline">Entertainment</a></li>
+                </ul>
             </div>
 
-            <!-- Section 3: Contact Us -->
-            <div class="flex-1">
-                <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-                <div class="space-y-2 mb-4">
-                    <a href="mailto:info@adalanka.com" class="block text-gray-300 hover:text-white hover:underline transition-colors text-sm">info@adalanka.com</a>
-                    <a href="mailto:news@adalanka.com" class="block text-gray-300 hover:text-white hover:underline transition-colors text-sm">news@adalanka.com</a>
-                </div>
-                
-                <!-- Social Icons -->
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-300 hover:text-white transition-colors">
-                        <!--<x-iconpark-facebook class="w-5 h-5" />-->
-                    </a>
-                    <a href="#" class="text-gray-300 hover:text-white transition-colors">
-                        <!--<x-iconpark-instagram-o class="w-5 h-5" />-->
-                    </a>
-                    <a href="#" class="text-gray-300 hover:text-white transition-colors">
-                        <!--<x-iconpark-twitter class="w-5 h-5" />-->
-                    </a>
-                    <a href="#" class="text-gray-300 hover:text-white transition-colors">
-                        <!--<x-iconpark-wechat class="w-5 h-5" />-->
-                    </a>
+            <!-- Contact -->
+            <div>
+                <h3 class="font-semibold mb-3">Contact us</h3>
+                <p>Example@gmail.com</p>
+                <p>Example@gmail.com</p>
+                <div class="flex space-x-4 mt-3">
+                    <a href="#"><img src="{{ asset('images/fb.png') }}" alt="Facebook" class="w-7 h-7"></a>
+                    <a href="#"><img src="{{ asset('images/in.png') }}" alt="Instagram" class="w-7 h-7"></a>
+                    <a href="#"><img src="{{ asset('images/wp.png') }}" alt="WhatsApp" class="w-7 h-7"></a>
+                    <a href="#"><img src="{{ asset('images/x.png') }}" alt="X" class="w-7 h-7"></a>
                 </div>
             </div>
 
-            <!-- Section 4: Legal -->
-            <div class="flex-1">
-                <h3 class="text-lg font-semibold mb-4">Legal</h3>
-                <div class="space-y-2">
-                    <a href="/" class="block text-gray-300 hover:text-white hover:underline transition-colors text-sm">Privacy Policy</a>
-                    <a href="/" class="block text-gray-300 hover:text-white hover:underline transition-colors text-sm">Terms & Conditions</a>
-                </div>
+            <!-- Policies -->
+            <div>
+                <h3 class="font-semibold mb-3">Legal</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:underline">Privacy & Policy</a></li>
+                    <li><a href="#" class="hover:underline">Terms Of Services</a></li>
+                    <li><a href="#" class="hover:underline">DMCA</a></li>
+                </ul>
             </div>
         </div>
 
-        <!-- Bottom Copyright -->
-        <div class="border-t border-gray-600 pt-4">
-            <p class="text-center text-gray-300 text-sm">
-                &copy; <span id="currentYear">2025</span> Ada Lanka - All rights reserved
-            </p>
+        <!-- Mobile (stacked layout) -->
+        <div class="md:hidden text-center">
+            <img src="{{ asset('images/logo.png') }}" alt="Ada Lanka" class="mx-auto w-28 mb-3">
+            <h3 class="font-semibold mb-2">Contact us</h3>
+            <p>Example@gmail.com</p>
+            <p>Example@gmail.com</p>
+            <div class="flex justify-center space-x-4 mt-3 mb-6">
+                <a href="#"><img src="{{ asset('images/fb.png') }}" alt="Facebook" class="w-7 h-7"></a>
+                <a href="#"><img src="{{ asset('images/in.png') }}" alt="Instagram" class="w-7 h-7"></a>
+                <a href="#"><img src="{{ asset('images/wp.png') }}" alt="WhatsApp" class="w-7 h-7"></a>
+                <a href="#"><img src="{{ asset('images/x.png') }}" alt="X" class="w-7 h-7"></a>
+            </div>
+
+            <div class="grid grid-cols-2 gap-6 border-t border-b border-white/30 py-6">
+                <div>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">Home</a></li>
+                        <li><a href="#" class="hover:underline">Ada Lanka Hub</a></li>
+                        <li><a href="#" class="hover:underline">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">Politics & Policy</a></li>
+                        <li><a href="#" class="hover:underline">Business</a></li>
+                        <li><a href="#" class="hover:underline">Health</a></li>
+                        <li><a href="#" class="hover:underline">Energy & Climate</a></li>
+                        <li><a href="#" class="hover:underline">Tech</a></li>
+                        <li><a href="#" class="hover:underline">Sports</a></li>
+                        <li><a href="#" class="hover:underline">Entertainment</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4 text-sm">
+                <a href="#" class="hover:underline">Privacy & Policy</a>
+                <a href="#" class="hover:underline">Terms Of Services</a>
+                <a href="#" class="hover:underline">DMCA</a>
+            </div>
+        </div>
+
+        <!-- Bottom copyright -->
+        <div class="border-t border-white/20 mt-6 pt-4 text-center text-xs">
+            © 2025 ADALanka.com. All rights reserved.
         </div>
     </div>
 </footer>
