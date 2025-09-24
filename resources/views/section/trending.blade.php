@@ -33,7 +33,7 @@
                         style="color:#5F0055; border:2px solid #C500B1;"
                         onmouseover="this.style.background='linear-gradient(90deg,#C500B1,#5F0055)';this.style.color='#fff';"
                         onmouseout="this.style.background='transparent';this.style.color='#5F0055';">
-                        Read more now <i class="fas fa-angle-right ml-1"></i>
+                        Read more <i class="fas fa-angle-right ml-1"></i>
                     </a>
 
                     </div>
