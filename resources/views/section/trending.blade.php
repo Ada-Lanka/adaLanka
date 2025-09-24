@@ -1,6 +1,14 @@
 @if ($latestPosts->isNotEmpty())
 <div class="container mx-auto px-4 py-8">
-    <h2 class="text-2xl font-bold mb-6 text-black">Trending</h2>
+
+<!-- gradient to news Trending -->
+    <div class="flex items-center space-x-1 mb-6">
+        <div class="flex-1" style="height: 4px; background: linear-gradient(90deg, #F5F5F5, #C500B1, #5F0055);"></div>
+            <h2 class="text-xl font-bold text-white px-4 py-2 whitespace-nowrap"
+            style="background: linear-gradient(90deg, #C500B1, #5F0055); border-radius: 30px;"
+            >Trending</h2>
+        <div class="flex-1" style="height: 4px; background: linear-gradient(90deg, #C500B1, #5F0055, #F5F5F5);"></div>
+    </div>
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
         {{-- Left: Latest Posts --}}
@@ -21,9 +29,12 @@
                             {{ \Illuminate\Support\Str::words(strip_tags($post->description), 25, '...') }}
                         </p>
                      <a href="{{ route('news.show', ['slug' => $post->slug]) }}"  
-   class="inline-block px-6 py-2 border-2 border-purple-700 text-purple-800 font-semibold rounded-full hover:bg-purple-700 hover:text-white transition">
-   Read more <i class="fas fa-angle-right ml-1"></i>
-</a>
+                        class="inline-block px-6 py-2 rounded-full border font-semibold transition-all"
+                        style="color:#5F0055; border:2px solid #C500B1;"
+                        onmouseover="this.style.background='linear-gradient(90deg,#C500B1,#5F0055)';this.style.color='#fff';"
+                        onmouseout="this.style.background='transparent';this.style.color='#5F0055';">
+                        Read more <i class="fas fa-angle-right ml-1"></i>
+                    </a>
 
                     </div>
                 </div>

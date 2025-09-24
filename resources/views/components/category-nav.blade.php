@@ -3,11 +3,15 @@
         @php
             $isActive = strtolower($category->category_name) === strtolower($active);
         @endphp
-<a href="{{ url('/categories/' . $category->slug . '/1') }}"
-   class="px-4 py-2 rounded-full border font-semibold transition-all
-          {{ $isActive ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg' : 'text-purple-800 border-purple-700 hover:bg-purple-100' }}">
-    {{ $category->category_name }}
-</a>
 
+        <a href="{{ url('/categories/' . $category->slug . '/1') }}"
+           class="px-4 py-2 rounded-full border font-semibold transition-all"
+           style="{{ $isActive
+                ? 'background: linear-gradient(90deg,#C500B1,#5F0055); color:#fff; border-color:transparent; box-shadow:0 4px 6px rgba(0,0,0,0.2);'
+                : 'color:#5F0055; border:1px solid #C500B1;' }}"
+           onmouseover="if(!{{ $isActive ? 'true' : 'false' }}){this.style.background='linear-gradient(90deg,#C500B1,#5F0055)';this.style.color='#fff';}"
+           onmouseout="if(!{{ $isActive ? 'true' : 'false' }}){this.style.background='transparent';this.style.color='#5F0055';}">
+            {{ $category->category_name }}
+        </a>
     @endforeach
 </div>
