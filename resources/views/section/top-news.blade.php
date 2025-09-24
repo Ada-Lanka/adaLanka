@@ -1,10 +1,10 @@
 @if ($topPosts->isNotEmpty())
     <div class="container mx-auto px-4 py-8">
 
-
+<!-- gradient to news header -->
     <div class="flex items-center space-x-2 mb-6">
         <div class="flex-1" style="height: 4px; background: linear-gradient(90deg, #F5F5F5, #C500B1, #5F0055);"></div>
-            <h2 class="text-2xl font-bold text-white px-6 py-3 whitespace-nowrap"
+            <h2 class="text-xl font-bold text-white px-4 py-2 whitespace-nowrap"
             style="background: linear-gradient(90deg, #C500B1, #5F0055); border-radius: 30px;"
             >Top News</h2>
         <div class="flex-1" style="height: 4px; background: linear-gradient(90deg, #C500B1, #5F0055, #F5F5F5);"></div>

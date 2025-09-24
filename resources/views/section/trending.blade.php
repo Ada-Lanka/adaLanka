@@ -1,6 +1,14 @@
 @if ($latestPosts->isNotEmpty())
 <div class="container mx-auto px-4 py-8">
-    <h2 class="text-2xl font-bold mb-6 text-black">Trending</h2>
+
+<!-- gradient to news Trending -->
+    <div class="flex items-center space-x-2 mb-6">
+        <div class="flex-1" style="height: 4px; background: linear-gradient(90deg, #F5F5F5, #C500B1, #5F0055);"></div>
+            <h2 class="text-xl font-bold text-white px-4 py-2 whitespace-nowrap"
+            style="background: linear-gradient(90deg, #C500B1, #5F0055); border-radius: 30px;"
+            >Trending</h2>
+        <div class="flex-1" style="height: 4px; background: linear-gradient(90deg, #C500B1, #5F0055, #F5F5F5);"></div>
+    </div>
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
         {{-- Left: Latest Posts --}}
