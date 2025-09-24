@@ -9,8 +9,8 @@
 <body class="bg-gray-100 text-gray-900">
 
     <!-- Header -->
-    <header class="bg-white shadow">
-        
+    <header class="bg-white">
+        <x-category-nav />
     </header>
 
     <!-- Content -->
