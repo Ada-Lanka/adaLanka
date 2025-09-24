@@ -64,7 +64,10 @@
                 <label for="comment" class="block text-sm font-semibold">Comment</label>
                 <textarea name="comment" id="comment" required rows="4" class="w-full border rounded px-3 py-2"></textarea>
             </div>
-            <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+            <button type="submit" class="inline-block px-6 py-2 rounded-full border font-semibold transition-all"
+                        style="color:#5F0055; border:2px solid #C500B1;"
+                        onmouseover="this.style.background='linear-gradient(90deg,#C500B1,#5F0055)';this.style.color='#fff';"
+                        onmouseout="this.style.background='transparent';this.style.color='#5F0055';">
                 Submit Comment
             </button>
         </form>
